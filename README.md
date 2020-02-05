@@ -7,7 +7,7 @@
 
 ## Development
 
-By registering custom components/systems, you can easily extend Hubs functionaltiy. 
+By registering custom components/systems, you can easily extend Hubs functionality. 
 
 1) Register components/systems in `hubs.inject.js`
 2) Start a development server: `npm run start`
