@@ -1,0 +1,9 @@
+diff --git a/node_modules/hubs/src/hub.js b/node_modules/hubs/src/hub.js
+index a688fc7..3bd4ad5 100644
+--- a/node_modules/hubs/src/hub.js
++++ b/node_modules/hubs/src/hub.js
+@@ -1,3 +1,4 @@
++import "../../../hubs.inject.js"
+ import "./webxr-bypass-hacks";
+ import "./utils/configs";
+ import "./utils/theme";
