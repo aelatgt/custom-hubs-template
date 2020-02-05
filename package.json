@@ -5,7 +5,7 @@
         "postinstall": "patch-package",
         "start": "npm explore hubs -- npm run start",
         "build": "npm explore hubs -- npm run build",
-        "patch": "patch-package hubs --exclude '(package.json$|package-lock\\.json$|certs.*)'",
+        "patch": "patch-package hubs --exclude '(package.json$|package-lock\\.json$|certs.*|^dist*)'",
         "deploy": "gh-pages -d node_modules/hubs/dist"
     },
     "dependencies": {
