@@ -9,7 +9,7 @@
 
 By registering custom components/systems, you can easily extend Hubs functionaltiy. 
 
-1) Register components/systems in `hubs.inject.js`
+1) Register components/systems in `hub.inject.js`
 2) Start a development server: `npm run start`
 3) To deploy on GitHub Pages in a `gh-pages` branch: `npm run deploy` 
     * Make sure GitHub Pages is configured appropriately in your fork

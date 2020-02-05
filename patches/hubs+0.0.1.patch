@@ -1,9 +1,12 @@
 diff --git a/node_modules/hubs/src/hub.js b/node_modules/hubs/src/hub.js
-index a688fc7..3bd4ad5 100644
+index a688fc7..1284c1c 100644
 --- a/node_modules/hubs/src/hub.js
 +++ b/node_modules/hubs/src/hub.js
-@@ -1,3 +1,4 @@
-+import "../../../hubs.inject.js"
- import "./webxr-bypass-hacks";
- import "./utils/configs";
- import "./utils/theme";
+@@ -11,6 +11,7 @@ import initialBatchImage from "./assets/images/warning_icon.png";
+ import loadingEnvironment from "./assets/models/LoadingEnvironment.glb";
+ 
+ import "aframe";
++import "../../../hub.inject.js";
+ import "./utils/logging";
+ import { patchWebGLRenderingContext } from "./utils/webgl";
+ patchWebGLRenderingContext();
