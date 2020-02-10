@@ -1,15 +1,15 @@
 {
     "private": true,
     "scripts": {
-        "install": "npm explore hubs -- npm install -D",
-        "postinstall": "patch-package",
+        "apply-patches": "patch-package",
+        "postinstall": "npm explore hubs -- npm install -D && npm run apply-patches",
         "start": "npm explore hubs -- npm run start",
         "build": "npm explore hubs -- npm run build",
-        "patch": "patch-package hubs --exclude '(package.json$|package-lock\\.json$|certs.*|^dist*)'",
+        "patch-hubs": "patch-package hubs --exclude '(package.json$|package-lock\\.json$|certs.*|^dist*)'",
         "deploy": "gh-pages -d node_modules/hubs/dist"
     },
     "dependencies": {
-        "hubs": "mozilla/hubs"
+        "hubs": "aelatgt/hubs"
     },
     "devDependencies": {
         "@types/aframe": "^0.8.4",
