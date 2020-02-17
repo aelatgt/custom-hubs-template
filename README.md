@@ -3,20 +3,27 @@
 ## Setup
  
 1) Fork this repository!
-3) Install dependencies:  `npm install`
+2) Install dependencies:  `npm install`
+3) The `postinstall` script will automatically clone mozilla/hubs and apply patches to make customizations easier. 
 
 ## Development
 
-By registering custom components/systems, you can easily extend Hubs functionality. 
+This template is designed to make it easier to create and maintain a customized Hubs client. 
 
 1) Register components/systems in `hub.inject.js`
-2) Start a development server: `npm run start`
-3) To deploy on GitHub Pages in a `gh-pages` branch: `npm run deploy` 
-    * Make sure GitHub Pages is configured appropriately in your fork
+2) Start a local development server: `npm run start`
 
-## Patching Hubs
+To build and deploy for GitHub Pages (in a `gh-pages` branch):
+
+1) `npm run build-gh`
+2) `npm run deploy-gh` 
+
+*Make sure GitHub Pages is configured appropriately in your fork*
+
+## Making new patches
 
 For more complex changes, you can patch Hubs directly without needing to fork it!
 
-1) Make changes to hubs in `./node_modules/hubs`
-2) Execute `npm run patch` to update the patch file
+1) Make changes to Hubs source in the `hubs` directory (created during installation)
+2) Execute `npm run makepatch` to create a new patch file 
+3) Rename the patch file saved in `patches/RENAME_ME.patch`

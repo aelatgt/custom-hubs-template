@@ -1,12 +1,12 @@
-diff --git a/node_modules/hubs/src/hub.js b/node_modules/hubs/src/hub.js
-index a688fc7..1284c1c 100644
---- a/node_modules/hubs/src/hub.js
-+++ b/node_modules/hubs/src/hub.js
+diff --git a/src/hub.js b/src/hub.js
+index 52e21f47..e1da8d9b 100644
+--- a/src/hub.js
++++ b/src/hub.js
 @@ -11,6 +11,7 @@ import initialBatchImage from "./assets/images/warning_icon.png";
  import loadingEnvironment from "./assets/models/LoadingEnvironment.glb";
  
  import "aframe";
-+import "../../../hub.inject.js";
++import "../../hub.inject.js";
  import "./utils/logging";
  import { patchWebGLRenderingContext } from "./utils/webgl";
  patchWebGLRenderingContext();
