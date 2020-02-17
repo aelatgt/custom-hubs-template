@@ -8,7 +8,7 @@ index 423afb79..0a10ed53 100644
  
 +if (window.location.protocol != "https:") {
 +  window.location.protocol = "https:";
-+  window.location.reload();
++  
 +}
 +
  const qs = new URLSearchParams(location.search);
