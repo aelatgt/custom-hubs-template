@@ -4,11 +4,12 @@
         "install": "npm explore hubs -- npm install -D",
         "postinstall": "patch-package",
         "start": "npm explore hubs -- npm run start",
-        "build": "npm explore hubs -- npm run build",
-        "patch": "patch-package hubs --exclude '(package.json$|package-lock\\.json$|certs.*|^dist*)'",
+        "build": "cross-env BASE_ASSETS_PATH=/custom-hubs-template/ npm explore hubs -- npm run build",
+        "patch": "patch-package hubs --exclude (package.json$|package-lock\\.json$|certs\\.*|^dist*)",
         "deploy": "gh-pages -d node_modules/hubs/dist"
     },
     "dependencies": {
+        "cross-env": "^7.0.0",
         "hubs": "mozilla/hubs"
     },
     "devDependencies": {
