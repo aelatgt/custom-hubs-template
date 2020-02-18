@@ -1,0 +1,27 @@
+diff --git a/src/utils/phoenix-utils.js b/src/utils/phoenix-utils.js
+index d3b96e74..f17a0db3 100644
+--- a/src/utils/phoenix-utils.js
++++ b/src/utils/phoenix-utils.js
+@@ -187,7 +187,7 @@ export async function createAndRedirectToNewHub(name, sceneId, replace) {
+   }
+ 
+   if (isLocalClient()) {
+-    url = `/hub.html?hub_id=${hub.hub_id}`;
++    url = process.env.BASE_ASSETS_PATH + `hub.html?hub_id=${hub.hub_id}`;
+   }
+ 
+   if (replace) {
+diff --git a/webpack.config.js b/webpack.config.js
+index 91ae7226..131884a9 100644
+--- a/webpack.config.js
++++ b/webpack.config.js
+@@ -351,7 +351,8 @@ module.exports = (env, argv) => ({
+         SENTRY_DSN: process.env.SENTRY_DSN,
+         GA_TRACKING_ID: process.env.GA_TRACKING_ID,
+         POSTGREST_SERVER: process.env.POSTGREST_SERVER,
+-        USE_FEATURE_CONFIG: process.env.USE_FEATURE_CONFIG
++        USE_FEATURE_CONFIG: process.env.USE_FEATURE_CONFIG,
++        BASE_ASSETS_PATH: process.env.BASE_ASSETS_PATH
+       })
+     })
+   ]

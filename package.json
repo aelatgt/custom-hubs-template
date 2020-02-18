@@ -1,20 +1,26 @@
 {
     "private": true,
     "scripts": {
-        "install": "npm explore hubs -- npm install -D",
-        "postinstall": "patch-package",
-        "start": "npm explore hubs -- npm run start",
-        "build": "cross-env BASE_ASSETS_PATH=/custom-hubs-template/ npm explore hubs -- npm run build",
-        "patch": "patch-package hubs --exclude (package.json$|package-lock\\.json$|certs\\.*|^dist*)",
-        "deploy": "gh-pages -d node_modules/hubs/dist"
-    },
-    "dependencies": {
-        "cross-env": "^7.0.0",
-        "hubs": "mozilla/hubs"
+        "hubs:clone": "test -d hubs || git clone https://github.com/mozilla/hubs hubs",
+        "hubs:reset": "cd hubs && git reset --hard HEAD",
+        "hubs:patch": "npm run hubs:reset && cd hubs && find ../patches -type f -name '*.patch' ! -size 0 | sort | xargs -t -n1 patch -p1 -i",
+        "hubs:unpatch": "cd hubs && find ../patches -type f -name '*.patch' ! -size 0 | sort -r | xargs -t -n1 patch -R -p1 -i",
+        "hubs:setup": "cd hubs && npm ci",
+        "postinstall": "run-s hubs:clone hubs:patch hubs:setup",
+        "premakepatch": "npm run hubs:unpatch",
+        "makepatch": "set -eo pipefail && cd hubs && git diff -U6 > ../patches/RENAME_ME.patch",
+        "postmakepatch": "npm run hubs:patch",
+        "start": "cd hubs && npm run start",
+        "build-gh": "cd hubs && cross-env BASE_ASSETS_PATH=/custom-hubs-template/ npm run build",
+        "deploy-gh": "gh-pages -d hubs/dist"
     },
     "devDependencies": {
         "@types/aframe": "^0.8.4",
+        "cross-env": "^7.0.0",
         "gh-pages": "^2.2.0",
-        "patch-package": "^6.2.0"
+        "npm-run-all": "^4.1.5"
+    },
+    "dependencies": {
+        "moment": "^2.24.0"
     }
 }
