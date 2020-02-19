@@ -8,7 +8,7 @@
         "hubs:setup": "cd hubs && npm ci",
         "postinstall": "run-s hubs:clone hubs:patch hubs:setup",
         "premakepatch": "npm run hubs:unpatch",
-        "makepatch": "set -eo pipefail && cd hubs && git diff -U6 > ../patches/RENAME_ME.patch",
+        "makepatch": "cd hubs && git diff > ../patches/RENAME_ME.patch",
         "postmakepatch": "npm run hubs:patch",
         "start": "cd hubs && npm run start",
         "build-gh": "cd hubs && cross-env BASE_ASSETS_PATH=/custom-hubs-template/ npm run build",
