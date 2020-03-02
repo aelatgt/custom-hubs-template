@@ -1,0 +1,20 @@
+diff --git a/scripts/use-hubs-cloud-stack.sh b/scripts/use-hubs-cloud-stack.sh
+index 6b4d3e9b..d4852ba6 100755
+--- a/scripts/use-hubs-cloud-stack.sh
++++ b/scripts/use-hubs-cloud-stack.sh
+@@ -36,13 +36,13 @@ CORS_PROXY_SERVER="$STACK_NAME-cors-proxy.$INTERNAL_ZONE_NAME"
+ 
+ # The thumbnailing backend to connect to.
+ # See here for the server code: https://github.com/MozillaReality/farspark or https://github.com/MozillaReality/nearspark
+-THUMBNAIL_SERVER="nearspark.$INTERNAL_ZONE_NAME"
++THUMBNAIL_SERVER="$STACK_NAME-nearspark.$INTERNAL_ZONE_NAME"
+ 
+ # The root URL under which Hubs expects environment GLTF bundles to be served.
+ ASSET_BUNDLE_SERVER="https://asset-bundles-prod.reticulum.io"
+ 
+ # Comma-separated list of domains which are known to not need CORS proxying
+-NON_CORS_PROXY_DOMAINS="$HOST,$EXTERNAL_ZONE_NAME"
++NON_CORS_PROXY_DOMAINS="$EXTERNAL_ZONE_NAME"
+ 
+ # The root URL under which Hubs expects static assets to be served.
+ BASE_ASSETS_PATH=/
