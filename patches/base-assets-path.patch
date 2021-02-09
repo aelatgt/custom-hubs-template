@@ -12,16 +12,12 @@ index d3b96e74..f17a0db3 100644
  
    if (replace) {
 diff --git a/webpack.config.js b/webpack.config.js
-index 91ae7226..131884a9 100644
+index e6361977..48090019 100644
 --- a/webpack.config.js
 +++ b/webpack.config.js
-@@ -351,7 +351,8 @@ module.exports = (env, argv) => ({
-         SENTRY_DSN: process.env.SENTRY_DSN,
-         GA_TRACKING_ID: process.env.GA_TRACKING_ID,
-         POSTGREST_SERVER: process.env.POSTGREST_SERVER,
--        USE_FEATURE_CONFIG: process.env.USE_FEATURE_CONFIG
-+        USE_FEATURE_CONFIG: process.env.USE_FEATURE_CONFIG,
-+        BASE_ASSETS_PATH: process.env.BASE_ASSETS_PATH
+@@ -615,4 +615,5 @@ module.exports = async (env, argv) => {
+           POSTGREST_SERVER: process.env.POSTGREST_SERVER,
++          BASE_ASSETS_PATH: process.env.BASE_ASSETS_PATH,
+           APP_CONFIG: appConfig
+         })
        })
-     })
-   ]

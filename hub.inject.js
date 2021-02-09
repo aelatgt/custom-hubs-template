@@ -1,7 +1,60 @@
+
+export async function injectScripts() {
+	return import("/injectScripts?hubid="+ myHub).then((data) => {
+		const urls = data.split(",")
+		const promises = []
+		for (url of urls) {
+			promises.add(import(url))
+		}
+		return Promise.all(promises)
+	})
+
+	// //get the current hub_id
+	// const myHub = hub.hub_id;
+	// //construct a url with a query param of the current hub_id
+	// const url = "/injectScripts?hubid="+ myHub;
+	
+	// //fetch the url with a get method and create scripts with the response if we get any
+	// fetch(url, {
+	//   method: 'get'
+	// })
+	// .then(function(body){
+	//   return body.text();
+	// }).then(function(data) {
+	// 	var myUrls = data.split(",");
+	// 	var myBody = document.querySelector("body");
+	// 	for(var items of myUrls) {
+	// 		if(items == "noUrls"){
+	// 			break;
+	// 		}
+	// 		//inject some scripts based on the returned array of urls
+	// 		var newScript = document.createElement("script");
+	// 		newScript.type = 'text/javascript';
+
+	// 		var srcAt = document.createAttribute('src');
+	// 		srcAt.value = items;
+	// 		newScript.setAttributeNode(srcAt);
+
+	// 		myBody.appendChild(newScript);
+	// 	}
+	// });
+}
+
 import * as moment from "moment"
 
 AFRAME.registerSystem('clock', {
 	init: function () {
+
+		const blockGeo = new THREE.BoxGeometry(1,1);
+		const blockMatt = new THREE.MeshNormalMaterial()
+		for (let i=0; i< 180; i++) {
+			const block = new THREE.Mesh( boxGeo, blockMatt )
+			const angle = (i / 180) * 360 * THREE.MathUtils.DEG2RAD
+			block.position.set(Math.sin(angle),4.5,Math.cos(angle))
+			block.position.multiplyScalar(10)
+		}
+
+
 		const clockGeo = new THREE.CircleGeometry(3, 12);
 		const clockMat = new THREE.MeshBasicMaterial( { color: 'skyblue' } );
 		const clock = new THREE.Mesh( clockGeo, clockMat );

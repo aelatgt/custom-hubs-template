@@ -1,8 +1,8 @@
 {
     "private": true,
     "scripts": {
-        "hubs:clone": "test -d hubs || git clone https://github.com/mozilla/hubs hubs",
-        "hubs:reset": "cd hubs && git reset --hard HEAD",
+        "hubs:clone": "test -d hubs || git clone -b hubs-cloud --single-branch https://github.com/mozilla/hubs hubs",
+        "hubs:reset": "cd hubs && git reset --hard HEAD && git clean -fdx",
         "hubs:patch": "npm run hubs:reset && cd hubs && find ../patches -type f -name '*.patch' ! -size 0 | sort | xargs -t -n1 patch -p1 -i",
         "hubs:unpatch": "cd hubs && find ../patches -type f -name '*.patch' ! -size 0 | sort -r | xargs -t -n1 patch -R -p1 -i",
         "hubs:setup": "cd hubs && npm ci",
